@@ -1,0 +1,111 @@
+import 'package:flutter/material.dart';
+
+
+
+void main()=> runApp(MaterialApp(
+initialRoute:'/home',
+  routes:{
+    '/': (context) => Load(),
+    '/home': (context) => Home(),
+    '/location': (context) => Location(),
+    
+ 
+  },
+));
+
+
+class Home extends StatefulWidget {
+  @override
+  HomeState createState() => HomeState();
+  
+}
+
+class HomeState extends State<Home>{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+    body:SafeArea(
+    child:Column(
+    children:<Widget>[
+      FlatButton.icon(
+        onPressed:(){
+          Navigator.pushNamed(context,'/location');
+        },
+        icon:Icon(Icons.edit_location),
+        label:Text('Chose your location'),
+      
+      ),//icon
+      
+    ],//widget
+    ),//clum
+    ),//safearea
+      appBar:AppBar(
+        backgroundColor:Colors.brown,
+        title:Text('World Clock'),
+        centerTitle:true,
+       ),//appbar
+     
+    
+    );//scafolld
+   }
+}
+
+class Location extends StatefulWidget {
+  
+  @override
+  LocationState createState() => LocationState();
+  
+}
+
+class LocationState extends State<Location>{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body:Center(
+        child:( FlatButton.icon(
+          onPressed:(){
+            Navigator.pushNamed(context,'/');
+          },
+        icon:Icon(Icons.engineering),
+        label:Text('your city'),
+      )
+      ),
+      ),
+      appBar: AppBar(
+      backgroundColor:Colors.brown,
+        title:Text('location selector'),
+        centerTitle:true,
+         
+      ),
+      
+      
+      
+      
+      );
+    
+   
+   }
+}
+class Load extends StatefulWidget {
+  @override
+  LoadState createState() => LoadState();
+  
+}
+
+class LoadState extends State<Load>{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+   body:Text('this will load first time'),
+      appBar: AppBar(
+      backgroundColor:Colors.blueAccent,
+        title:Text('location selector'),
+        centerTitle:true,
+      ),
+      
+      
+   
+    
+    );
+   }
+}
